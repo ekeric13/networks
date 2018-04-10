@@ -1,0 +1,13 @@
+(13. packet 2 has the response to the GET request.)
+(14. status code and response is 200 OK)
+HTTP/1.1 200 OK
+Date: Mon, 09 Apr 2018 18:33:43 GMT
+Server: Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/5.4.16 mod_perl/2.0.10 Perl/v5.16.3
+Last-Modified: Mon, 09 Apr 2018 05:59:01 GMT
+ETag: "1194-569641a431e0e"
+Accept-Ranges: bytes
+Content-Length: 4500
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+(15. 5 tcp segments in total for the http response. 1 for header, 4 for body.)

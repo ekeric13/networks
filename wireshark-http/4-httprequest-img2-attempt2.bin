@@ -1,0 +1,9 @@
+GET /~kurose/cover_5th_ed.jpg HTTP/1.1
+Host: caite.cs.umass.edu
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36
+Accept: image/webp,image/apng,image/*,*/*;q=0.8
+Referer: http://gaia.cs.umass.edu/wireshark-labs/HTTP-wireshark-file4.html
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+

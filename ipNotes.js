@@ -7,9 +7,15 @@ bind address on local machine that other hosts connect to. the program is willin
 "0.0.0.0 on the Local Address column, it means that port is listening on all 'network interfaces'"
 
 
-domain name = google
+domain name = google.com
 hostname = www.google.com
+domain name = wikipedia.com
+hostname = www.en.wikipedia.com
 hostname is the name for a specific machine within a domain.
+
+hostname.domain.com
+hostname is the name given to the end-point 
+domain is the name given to the 'network'
 
 en0 = wifi
 
@@ -20,4 +26,18 @@ A process is a program that is currently running.
 "Everything is a file descriptor"
 sockets:  a way to speak to other programs using standard Unix file descriptors.
 
+|network prefix| hostnumber |
+|network prefix | subnet number | hostnumber |
+"subnet mask or netmask, which is the bitmask that when applied by a bitwise AND operation to any 
+IP address in the network, yields the routing prefix"
+
+wireshark seems to want my external ip address
+
+
+dig -x 2607:f8b0:4005:809::200e CNAME
+to find canonical hostname
+
+tcp contains facebook
+or look at 
+packetbytes string facebook
 */

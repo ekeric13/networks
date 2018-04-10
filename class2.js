@@ -253,7 +253,144 @@ Q: Why might the designers of HTTP specified a particular transport protocol? (a
 Http wants to choose a stateful protocol to make sure it arrives correctly, has http does not want to 
 worry about state.
 specifically chose tcp since it knows it is stateful.
+udp is connectionless, so not stateful.
 
 
+host<->proxy<->endpoint
+server->cdn
+host->cdn
+host<-cdn
+
+end to end headers have to go to the final receiptant
+hop by hop headers
+
+e2e header = destination and source ip address
+hop by hop = time to live (has to decrement by 1 for every router)
+
+
+what is the application layer? responsibilities of an application layer protocol?
+protocols implemented for 2 specific applications that need to talk to each other.
+application layer is specific application developers.
+matters to client and server.
+protocol defines engagement.
+web server talks http
+skype talks skype protocol.
+
+
+NAT = network address translation
+bradfiled router has external ip address that identifies it to external ip.
+NAT translates external IP to internal IP.
+
+10.0.0.1:80 -> R(97.3.2.154) -> internet
+             ^
+10.0.0.2 ----|
+
+Router has:
+1234: 10.0.0.1:80
+1237: 10.0.0.2
+
+ARP maps ip->mac address
+
+
+what is interesting about http as application layer protocol?
+quite popular. can be used to encode many different content types like text, binary, jpg.
+
+tcp header is binary.
+tcp header cannot be read. bytes themselves have inherit meaning.
+http header is ascii. needs to be converted to a string and then read.
+binary protocol is more compact.
+
+most major big sites are using http2
+
+
+html
+2 css 
+2 images
+RTT: 90ms
+180ms for page
+can have 2 tcp ports
+
+handshake:1 90
+get html 90
+get css1 90  tcp handshake:2 90
+get css2 90  get image1 90
+get image2 90
+=450ms
+if can have 4 connections
+=360ms
+
+http2
+have messages
+stream (contains many messages) - stream is about 1500 bytes.
+tcp connection (contains many streams)
+if pushing
+180ms.
+90ms for handshake.
+and push all 5 stuff, is 90ms
+if not pushing.
+90ms handshake
+get html 90ms
+180ms rest of stuff.
+=360ms.
+
+
+for http1.1, you can do pipelining, and request 2 css sheets at once.
+how many you can request at once is determined by the browser. chrome allows 6 requests at once.
+limit at 6 to prevent ddos attack, and don't want to use too much cpu.
+slow loris ddos attack, nginx help prevent it.
+cloudflare is cdn and security.
+nginx is not just markup, but can be used for scripting.
+
+
+what are cookies?
+server gives browser information about state.
+each host gives us a cookie.
+google.com (cookie for this)
+facebook.com (cookie for this)
+browser stores all these cookies.
+when browser makes request to google.com, cookie is sent along.
+tracking cookie -> get a cookie into browser and have that cookie sent from lots of different sites.
+doubleclick.com is the server for many advertisements. doubleclick has one cookie.
+go on fb.com, see an ad hosted by doubleclick.com. send request to doubleclick. request has referer header.
+go on google.com, see an ad hosted by doubleclick.com.
+doubleclick.com can see all the sites you go to (if you have an ad, script, image on them)
+doubleclick goes to google, asks if they know someone with the ip address of 97.1.9.5, google knows that is you 
+if you have a google plus page.
+
+ISPs know where you went, google.com gives us the ip address via udp, which is unencrypted.
+so they know all the sites you visited by hostname.
+
+to get around this you need to use VPN.
+vpn changes ip address.
+
+tracking pixels.
+mailchimp knows if you opened emails.
+in email, put in an image with a src that lives on mailchimpsserver
+src="mailchimp.com/image?email=eric"
+
+single origin policy
+on google.com
+there is a script that is fetching something from doubleclick.com
+browser automatically won't let you get info.
+CORS allow google.com to whitelist 3rd parties like doubleclick.com
+you might whitelist your cdn's urls.
+
+
+websockets you still have just a tcp connection
+ws is on top of http.
+has an upgrade header.
+sockets implemented in c.
+python and js wrappers around sockets.
+
+socket class encapsulates
+transport
+net
+link
+
+
+websockets vs long polling
+longpolling is interval js fn that makes intermettent requests
+
+port forwarding: 
 
 */
