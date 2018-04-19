@@ -199,11 +199,16 @@ UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
 
 bandit 25
 
+ssh -p 2220 -l bandit25 bandit.labs.overthewire.org
+UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+
 cd /tmp
 mkdir ericsupersecret
 chomd 777 ericsupersecret
 touch script.sh
 chomd 777 script.sh
+
+nano script.sh
 
 #!/bin/bash
 $pw = UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ

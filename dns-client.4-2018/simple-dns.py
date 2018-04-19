@@ -7,6 +7,8 @@ from functools import reduce
 # python3 simple-dns.py google.com A
 # dig equivalent: dig @8.8.8.8 google.com A
 # implementing something like: socket.gethostbyname(hostname)
+# http://www.fauser.edu/~fuligni/files/classi5/sistemi-reti/project1-primer%20(DNS%20message%20structure).pdf
+# https://routley.io/tech/2017/12/28/hand-writing-dns-messages.html
 
 UDP_SEND_IP = "8.8.8.8"  # Google's Open DNS
 UDP_SEND_PORT = 53       # DNS expects port 53
